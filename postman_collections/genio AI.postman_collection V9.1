@@ -1,0 +1,3681 @@
+{
+	"info": {
+		"_postman_id": "2909e3c9-7220-4156-95a6-5a88114e4b20",
+		"name": "genio AI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42360708"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\" : \"test@gmail.com\" ,\r\n     \"password\" : \"Test123#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"hassnaa\" ,\r\n       \"lastname\" : \"lotfy\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Test123#\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/signup",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"email\" : \"bassela.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel12#\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/signup",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 11:53:47 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"27-O/zF1M4EsSeqcgZOzAXUbc5OpUA\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::r8wsd-1741866825439-44577cc1fcb7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\"\n}"
+						},
+						{
+							"name": "duplicated email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"email\" : \"bassela.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel12#\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/signup",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 11:54:47 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"25-FALXnfVDF85Ht8u+U3BPaJ1hPvM\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::zb45c-1741866887606-a78a76d1835b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email is already exists\"\n}"
+						},
+						{
+							"name": "not matched password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/signup",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 11:56:16 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"24-N6uFjuN5oLJQsoX+l0WGxyl2HG4\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::msbng-1741866976280-7f9c3318e17b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Passwords do not match\"\n}"
+						},
+						{
+							"name": "wrong password schema",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/signup",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 11:56:40 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::45dvg-1741867000340-39e92390e821"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"boc@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "succesfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"bassela.salam@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/login",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:06:25 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"124-r9pgYEpvwjMiVXAa4taKRpctlBY\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs; Path=/; HttpOnly; Secure; SameSite=Strict"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::rvkjd-1741867582314-e92d0693bcdd"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs\"\n}"
+						},
+						{
+							"name": "wrong credintials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"bassela.salllam@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/login",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:06:48 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"27-Mm37A2ls1bgL0/D8e3MSpDLbow8\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::mxfgz-1741867608439-90431b992795"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid email or password\"\n}"
+						},
+						{
+							"name": "wrong password schema",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"bassela.salllam@gmail.com\" ,\r\n    \"password\" : \"Bassel\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/login",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:07:15 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"ff-1/qNeClQXr6niNDHqwzfIgBmuSE\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::lqf97-1741867635118-5709083223e2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"code\": \"too_small\",\n            \"minimum\": 8,\n            \"type\": \"string\",\n            \"inclusive\": true,\n            \"exact\": false,\n            \"message\": \"String must contain at least 8 character(s)\",\n            \"path\": [\n                \"password\"\n            ]\n        },\n        {\n            \"validation\": \"regex\",\n            \"code\": \"invalid_string\",\n            \"message\": \"Invalid\",\n            \"path\": [\n                \"password\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "resetRequest",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bassela.Salam@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/resetRequest",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"resetRequest"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not found user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"basselllllla.salam@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/resetRequest",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"resetRequest"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:15:21 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2b-IKMjDraS/oArnqfqfgQ68q/3FxY\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::sldjj-1741868121219-5f0b105c7d57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"No user found with this email\"\n}"
+						},
+						{
+							"name": "sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"roro@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/resetRequest",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"resetRequest"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"64-m/F0Kyfo+xNoKqZx1CDT8rlArys\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 09:19:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password reset email sent successfully\",\n    \"userId\": \"777b9b3d-4744-4eb4-ae3a-31da21361aa7\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Code Enter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ResetCode\" : \"14785\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/resetCode/{{user_id}}",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"resetCode",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ResetCode\" : \"14785\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/resetCode/{{user_id}}",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"resetCode",
+										"{{user_id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:24:37 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2b-NeYt7s1OxcX/jB/CK16e8IPTELE\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::6xt4f-1741868675980-37543692b065"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid or expired reset code\"\n}"
+						},
+						{
+							"name": "sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ResetCode\" : \"5130\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/resetCode/{{user_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"resetCode",
+										"{{user_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-ebU1WEs7nKB089/dnTwQHWUMZHU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 09:20:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Reset code is valid\",\n    \"userId\": \"777b9b3d-4744-4eb4-ae3a-31da21361aa7\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/reset/{{user_id}}",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"reset",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no match password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/reset/{{user_id}}",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"reset",
+										"{{user_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:27:39 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"23-CPq8qcivhl0hzBdwA6fOAZ4uGkE\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::tffvq-1741868859165-9d901f6da516"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"passwords don't match\"\n}"
+						},
+						{
+							"name": "wrong password schema",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/reset/{{user_id}}",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"reset",
+										"{{user_id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:38:44 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::hh2hk-1741869524774-59ba2c9c7277"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+						},
+						{
+							"name": "successsfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/reset/{{user_id}}",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"reset",
+										"{{user_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:39:11 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1b-AF7oII34P3U/fIEcvSAZoaMYKF0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::qf5j2-1741869550357-c9c4c025ed01"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"reset is Done\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get user profile",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/user/profile",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 12:42:41 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::qsz28-1741869760996-8356dbab1ed2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized: No token provided\"\n}"
+						},
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Mar 2025 13:30:58 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"71-m+czmoqlYEMMGW+M1F/Qf6f6kE8\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::nn2zc-1741872658289-c0a4227b5d8d"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Bassel Sallam\",\n    \"email\": \"bassela.salam@gmail.com\",\n    \"phone\": \"01100725449\",\n    \"countrycode\": \"+20\",\n    \"image\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/user/edit",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"edit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:19:11 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"25-z5kAIVrOG4WcMaAVeF2zh8JbQg0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::k8mb5-1741997950287-6106fbad0d1c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user profile is updated\"\n}"
+						},
+						{
+							"name": "un authorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:20:36 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::5k9hc-1741998035734-8b6ada7d4542"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not authorized\"\n}"
+						},
+						{
+							"name": "no token",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:21:15 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::7qsks-1741998075806-a0b8600afb68"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized: No token provided\"\n}"
+						},
+						{
+							"name": "invalid email",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/profile",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:23:26 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"ad-GoXF/hiCrAHxe/5yCJVcaB8ASpk\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::qcczh-1741998206385-739e0bd09a3f"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"[\\n  {\\n    \\\"validation\\\": \\\"email\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid email\\\",\\n    \\\"path\\\": [\\n      \\\"email\\\"\\n    ]\\n  }\\n]\"\n}"
+						}
+					]
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/user/edit/password",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"edit",
+								"password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not match",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/edit/password",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:25:32 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"24-N6uFjuN5oLJQsoX+l0WGxyl2HG4\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::srm6g-1741998332543-5b55caae919b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Passwords do not match\"\n}"
+						},
+						{
+							"name": "wrong schema",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://back-end-api.genio.ae/api/user/edit/password",
+									"protocol": "https",
+									"host": [
+										"back-end-api",
+										"genio",
+										"ae"
+									],
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:25:48 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::nss7p-1741998348579-412491a95ab7"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+						},
+						{
+							"name": "unauthrotized",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://genio-rust.vercel.app/api/user/edit/password",
+									"protocol": "https",
+									"host": [
+										"genio-rust",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"password"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:26:40 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::gnkgc-1741998400199-1f0277dc822f"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not authorized\"\n}"
+						},
+						{
+							"name": "successfull",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://genio-rust.vercel.app/api/user/edit/password",
+									"protocol": "https",
+									"host": [
+										"genio-rust",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"password"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 00:27:15 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2e-zD6rvM9BhyMxSFJbUsbl2KCIu98\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "fra1::iad1::m7rw7-1741998434074-7a3a339e7fe2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password is updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "edit image",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/BasselSallam/Desktop/doc/6.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/user/edit/image",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"edit",
+								"image"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/BasselSallam/Desktop/vector-modern-bus-black-white-illustration_600323-1399.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/user/edit/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"image"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-IDHCoReAMEDho74DP5jOmW/UrXE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Mar 2025 22:54:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Image is uploaded successfully\"\n}"
+						},
+						{
+							"name": "no image",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/BasselSallam/Desktop/vector-modern-bus-black-white-illustration_600323-1399.jpg",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/user/edit/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"image"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-RuEUrN0QtPlwvGJylleayGNbKK0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Mar 2025 23:08:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Please upload an image\"\n}"
+						},
+						{
+							"name": "not authorized",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/BasselSallam/Desktop/9a54ee64-dd1b-45ef-afb1-38ffe9c4468b.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/user/edit/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"edit",
+										"image"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Mar 2025 23:09:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not authorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get user id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSGFzIE5hYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMcUtFRm9oaWcyUi1YeEEtNzJsODhDdnF1ZWZDZ0NTZWNnQ1QwQmJaOFNCcGFsWU56aXh3PXM5Ni1jIiwiZW1haWwiOiJuYWFoNjMxMEBnbWFpbC5jb20iLCJzdWJpZCI6Imdvb2dsZS1vYXV0aDJ8MTEyMjkzNDA3MTgyMTU5MjAzNjU4In0.r0_QsKOrFyUpqHQ-V4muwymZA3erPso4O0Xbx9y6Lzk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/user/id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"id"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"id"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-ohbbLb2UXkR+D3Kjqlhxp6p1Y7o\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Apr 2025 10:27:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": \"c23670ee-c744-48fb-acf0-976df7f52e9c\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chats",
+			"item": [
+				{
+					"name": "get chats history",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/user/chat",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"chat"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/chat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"chat"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-BBn/9d6zjC516hzXGI0n3411L2U\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 02:54:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"C++ calculator tutorial.\",\n        \"id\": \"9386b8f2-2e11-45bd-bf9e-a1a3dff2678f\"\n    }\n]"
+						},
+						{
+							"name": "not authorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/chat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"chat"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 03:06:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not authorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get Chat",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/user/chat/{{chat_id}}",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"chat",
+								"{{chat_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/chat/{{chat_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"chat",
+										"{{chat_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13760"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35c0-Mr12NM3z+ygoZeWhmqrwV3W+xos\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 03:05:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"question\": \"how to make calculator using c++\",\n        \"answer\": \"Here's how to make a simple calculator using C++:\\n\\nThis example demonstrates basic addition, subtraction, multiplication, and division.  Error handling (like division by zero) is omitted for brevity but should be included in a production-ready calculator.\\n\\n```c++\\n#include <iostream>\\n\\nusing namespace std;\\n\\nint main() {\\n  char operation;\\n  double num1, num2;\\n\\n  cout << \\\"Enter operator (+, -, *, /): \\\";\\n  cin >> operation;\\n\\n  cout << \\\"Enter two operands: \\\";\\n  cin >> num1 >> num2;\\n\\n  switch (operation) {\\n    case '+':\\n      cout << num1 << \\\" + \\\" << num2 << \\\" = \\\" << num1 + num2 << endl;\\n      break;\\n    case '-':\\n      cout << num1 << \\\" - \\\" << num2 << \\\" = \\\" << num1 - num2 << endl;\\n      break;\\n    case '*':\\n      cout << num1 << \\\" * \\\" << num2 << \\\" = \\\" << num1 * num2 << endl;\\n      break;\\n    case '/':\\n      if (num2 != 0) {\\n        cout << num1 << \\\" / \\\" << num2 << \\\" = \\\" << num1 / num2 << endl;\\n      } else {\\n        cout << \\\"Error: Division by zero!\\\" << endl;\\n      }\\n      break;\\n    default:\\n      cout << \\\"Error: Invalid operator!\\\" << endl;\\n  }\\n\\n  return 0;\\n}\\n```\\n\\nTo compile and run this code:\\n\\n1. **Save:** Save the code as a `.cpp` file (e.g., `calculator.cpp`).\\n2. **Compile:** Use a C++ compiler (like g++) to compile the code:  `g++ calculator.cpp -o calculator`\\n3. **Run:** Execute the compiled program: `./calculator`\\n\\nThe program will then prompt you to enter the operator and two numbers.  Remember to add more robust error handling and potentially more advanced features for a more complete calculator.\"\n    },\n    {\n        \"question\": \"and how to make it using python \",\n        \"answer\": \"That's a bit vague.  \\\"It\\\" refers to something unspecified. To answer how to make *something* using Python, I need to know what \\\"it\\\" is.  Please specify what you want to create using Python.  For example:\\n\\n* \\\"And how to make a simple web server using Python?\\\"\\n* \\\"And how to make a program that sorts numbers using Python?\\\"\\n* \\\"And how to make a game of tic-tac-toe using Python?\\\"\\n\\n\\nOnce you provide the \\\"it,\\\" I can give you a helpful Python code example and explanation.\"\n    },\n    {\n        \"question\": \"and how to make it using python\",\n        \"answer\": \"To create a calculator with different languages and options using Python, you'll need to combine several techniques. Here's a breakdown using the `tkinter` library for the GUI and a simple approach to language support:\\n\\n**1. Basic Calculator Functionality with `tkinter`:**\\n\\nThis example demonstrates a simple calculator with basic operations:\\n\\n```python\\nimport tkinter as tk\\n\\ndef button_click(number):\\n    current = entry.get()\\n    entry.delete(0, tk.END)\\n    entry.insert(0, str(current) + str(number))\\n\\ndef button_clear():\\n    entry.delete(0, tk.END)\\n\\ndef button_equal():\\n    try:\\n        result = eval(entry.get())\\n        entry.delete(0, tk.END)\\n        entry.insert(0, result)\\n    except (SyntaxError, NameError, ZeroDivisionError):\\n        entry.delete(0, tk.END)\\n        entry.insert(0, \\\"Error\\\")\\n\\n# Create main window\\nroot = tk.Tk()\\nroot.title(\\\"Calculator\\\")\\n\\n# Entry field\\nentry = tk.Entry(root, width=35, borderwidth=5)\\nentry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)\\n\\n# Buttons\\nbuttons = [\\n    '7', '8', '9', '/',\\n    '4', '5', '6', '*',\\n    '1', '2', '3', '-',\\n    '0', '.', '=', '+'\\n]\\n\\nrow = 1\\ncol = 0\\nfor button_text in buttons:\\n    button = tk.Button(root, text=button_text, padx=40, pady=20, command=lambda text=button_text: button_click(text) if text != '=' else button_equal())\\n    button.grid(row=row, column=col)\\n    col += 1\\n    if col > 3:\\n        col = 0\\n        row += 1\\n\\nclear_button = tk.Button(root, text=\\\"Clear\\\", padx=79, pady=20, command=button_clear)\\nclear_button.grid(row=row, column=0, columnspan=2)\\n\\nroot.mainloop()\\n```\\n\\n**2. Adding Language Support (Simplified):**\\n\\nThis is a simplified example; a robust solution would involve a more sophisticated translation system (e.g., using a library or external resource files).\\n\\n```python\\nimport tkinter as tk\\n\\n# ... (button functions from previous example) ...\\n\\n# Language dictionary (expand for more languages and buttons)\\nlanguage = {\\n    \\\"en\\\": {\\n        \\\"title\\\": \\\"Calculator\\\",\\n        \\\"clear\\\": \\\"Clear\\\",\\n        \\\"error\\\": \\\"Error\\\"\\n    },\\n    \\\"es\\\": {\\n        \\\"title\\\": \\\"Calculadora\\\",\\n        \\\"clear\\\": \\\"Limpiar\\\",\\n        \\\"error\\\": \\\"Error\\\"\\n    }\\n}\\n\\ndef set_language(lang_code):\\n    global language_data\\n    language_data = language[lang_code]\\n    root.title(language_data[\\\"title\\\"])\\n    clear_button.config(text=language_data[\\\"clear\\\"])\\n    # ... update other labels and button texts as needed ...\\n\\n# ... (rest of the code from the previous example) ...\\n\\n# Language selection (example)\\nlang_var = tk.StringVar(value=\\\"en\\\")\\nlang_menu = tk.OptionMenu(root, lang_var, \\\"en\\\", \\\"es\\\", command=set_language)\\nlang_menu.grid(row=row+1, column=0, columnspan=2)\\n\\nroot.mainloop()\\n```\\n\\n**3. Advanced Features:**\\n\\nTo add advanced features (scientific functions, memory functions, unit conversions), you'll need to:\\n\\n* **Implement the mathematical logic:**  Write functions to perform the calculations.\\n* **Update the UI:**  Add buttons and display elements for the new features.\\n* **Handle user input:**  Ensure that the calculator correctly interprets user input for the advanced functions.\\n\\nRemember that this is a basic framework.  A full-fledged, multi-language calculator with many features would require a more extensive codebase and potentially the use of external libraries for more advanced mathematical functions or language translation.  For more complex language support, consider using a dedicated internationalization library.\"\n    },\n    {\n        \"question\": \"and how to make it using c#\",\n        \"answer\": \"Creating a multi-lingual calculator with various options in C# typically involves using Windows Forms or WPF for the UI and potentially external libraries for advanced features or language translation. Here's a structured approach:\\n\\n**1.  Basic Calculator with Windows Forms:**\\n\\nThis example uses Windows Forms for a simple calculator with basic operations.  You'll need to create a new Windows Forms App (.NET Framework or .NET) project in Visual Studio.\\n\\n```csharp\\nusing System;\\nusing System.Windows.Forms;\\n\\npublic partial class Form1 : Form\\n{\\n    private double firstNumber;\\n    private string operation;\\n\\n    public Form1()\\n    {\\n        InitializeComponent();\\n    }\\n\\n    private void button_Click(object sender, EventArgs e)\\n    {\\n        Button button = (Button)sender;\\n        textBox1.Text += button.Text;\\n    }\\n\\n    private void button_operator_Click(object sender, EventArgs e)\\n    {\\n        Button button = (Button)sender;\\n        firstNumber = double.Parse(textBox1.Text);\\n        operation = button.Text;\\n        textBox1.Text = \\\"\\\";\\n    }\\n\\n    private void button_equal_Click(object sender, EventArgs e)\\n    {\\n        double secondNumber = double.Parse(textBox1.Text);\\n        double result = 0;\\n\\n        switch (operation)\\n        {\\n            case \\\"+\\\":\\n                result = firstNumber + secondNumber;\\n                break;\\n            case \\\"-\\\":\\n                result = firstNumber - secondNumber;\\n                break;\\n            case \\\"*\\\":\\n                result = firstNumber * secondNumber;\\n                break;\\n            case \\\"/\\\":\\n                if (secondNumber == 0)\\n                {\\n                    textBox1.Text = \\\"Error: Division by zero\\\";\\n                    return;\\n                }\\n                result = firstNumber / secondNumber;\\n                break;\\n        }\\n\\n        textBox1.Text = result.ToString();\\n    }\\n\\n    private void button_clear_Click(object sender, EventArgs e)\\n    {\\n        textBox1.Text = \\\"\\\";\\n    }\\n}\\n```\\n\\nRemember to add buttons (0-9, +, -, *, /, =, Clear) and a TextBox to your form in the designer.  Associate the `button_Click`, `button_operator_Click`, `button_equal_Click`, and `button_clear_Click` methods with the appropriate buttons' `Click` events.\\n\\n**2.  Adding Language Support (Simplified):**\\n\\nFor a simple demonstration of language support, you can use a `Dictionary` to store translations:\\n\\n```csharp\\n// ... (previous code) ...\\n\\nprivate Dictionary<string, Dictionary<string, string>> translations = new Dictionary<string, Dictionary<string, string>>()\\n{\\n    { \\\"en\\\", new Dictionary<string, string>() { { \\\"Clear\\\", \\\"Clear\\\" }, { \\\"Error\\\", \\\"Error\\\" } } },\\n    { \\\"es\\\", new Dictionary<string, string>() { { \\\"Clear\\\", \\\"Limpiar\\\" }, { \\\"Error\\\", \\\"Error\\\" } } }\\n};\\n\\nprivate string currentLanguage = \\\"en\\\"; // Default language\\n\\nprivate void SetLanguage(string languageCode)\\n{\\n    currentLanguage = languageCode;\\n    button_clear.Text = translations[currentLanguage][\\\"Clear\\\"];\\n    // ... update other button texts and labels as needed ...\\n}\\n\\n// Example of using the language selection:\\nprivate void comboBox1_SelectedIndexChanged(object sender, EventArgs e)\\n{\\n    SetLanguage(comboBox1.SelectedItem.ToString());\\n}\\n```\\n\\nAdd a ComboBox to your form to allow the user to select a language.  Populate the ComboBox with language codes (\\\"en\\\", \\\"es\\\", etc.).  The `SetLanguage` function updates the UI elements based on the selected language.\\n\\n**3. Advanced Features (WPF is generally better suited):**\\n\\nFor more advanced features (scientific functions, memory, unit conversions, etc.), WPF (Windows Presentation Foundation) is generally a better choice than Windows Forms because it offers more flexibility and a more modern UI framework.  You would use XAML for the UI and C# for the backend logic.  For complex calculations, you might consider using a mathematical library.\\n\\n**4.  Internationalization (i18n) Libraries:**\\n\\nFor a professional-grade, multi-lingual application, consider using a dedicated internationalization library to manage translations more effectively.  These libraries often provide features for resource file management, culture-specific formatting, and more.\\n\\n\\nThis expanded example provides a more complete foundation.  Remember to handle potential errors (like division by zero or invalid input) gracefully.  For a production-ready application, thorough testing and error handling are crucial.  WPF is recommended for more complex UIs and features.\"\n    },\n    {\n        \"question\": \"and how to make it in arduino\",\n        \"answer\": \"Making a calculator on an Arduino is different than a C++ desktop application because of the Arduino's limited input/output capabilities.  You won't have a keyboard and screen; instead, you'll likely use buttons for input and an LCD screen or LEDs for output.\\n\\nHere's a conceptual outline and code snippet to illustrate how you might approach a simple calculator on an Arduino using buttons and an LCD:\\n\\n**1. Hardware:**\\n\\n* **Arduino Board:** (Uno, Nano, etc.)\\n* **LCD Screen:** A 16x2 LCD is common and easy to interface.\\n* **Buttons:**  At least four buttons (one for each operation: +, -, *, /) and possibly more for numbers (0-9) and an equals (=) button.\\n* **Resistors:**  Pull-down resistors for the buttons (to prevent floating inputs).\\n* **Jumper Wires:** To connect everything.\\n\\n**2. Software (Arduino IDE):**\\n\\nYou'll need libraries for the LCD.  The most common is the `LiquidCrystal` library.  Make sure to install it if you don't have it already (Sketch > Include Library > Manage Libraries... then search for \\\"LiquidCrystal\\\").\\n\\n```c++\\n#include <LiquidCrystal.h>\\n\\n// LCD pins (adjust these to match your wiring)\\nconst int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;\\nLiquidCrystal lcd(rs, en, d4, d5, d6, d7);\\n\\n// Button pins (adjust these to match your wiring)\\nconst int buttonPlus = 8;\\nconst int buttonMinus = 9;\\nconst int buttonMultiply = 10;\\nconst int buttonDivide = 7;\\n// ... add pins for number buttons (0-9) and equals button\\n\\n// Variables to store numbers and operation\\nfloat num1 = 0, num2 = 0;\\nchar operation = ' ';\\n\\n\\nvoid setup() {\\n  lcd.begin(16, 2); // Initialize LCD\\n  lcd.print(\\\"Calculator\\\"); // Display a message\\n\\n  // Set button pins as inputs with pull-down resistors\\n  pinMode(buttonPlus, INPUT_PULLUP);\\n  pinMode(buttonMinus, INPUT_PULLUP);\\n  pinMode(buttonMultiply, INPUT_PULLUP);\\n  pinMode(buttonDivide, INPUT_PULLUP);\\n  // ... set pins for number buttons and equals button as INPUT_PULLUP\\n}\\n\\nvoid loop() {\\n  // Read button states\\n  // ... (Code to read button presses and store numbers and operation)\\n\\n  // Perform calculation based on the operation\\n  // ... (Code to perform calculation and display result on LCD)\\n\\n  // Clear the LCD for the next calculation\\n  // ... (Code to clear the LCD)\\n}\\n```\\n\\n**3.  Implementation Details:**\\n\\n* **Button Debouncing:**  Buttons need debouncing to prevent multiple readings from a single press.  Use a simple debouncing technique (e.g., checking the button state multiple times within a short time window).\\n* **Finite State Machine (FSM):**  An FSM is a good approach to manage the different states of the calculator (waiting for input, performing calculation, displaying results).\\n* **Number Input:**  You'll need to handle multiple button presses to build up numbers (e.g., pressing '1', then '2' to get 12).\\n* **Display:**  Update the LCD screen to show the current input, operation, and result.\\n\\nThis is a simplified overview.  A full implementation would require significantly more code to handle button debouncing, number input, operation selection, calculation, and LCD display updates.  The complexity increases substantially with the number of buttons and features you want to include.\"\n    }\n]"
+						},
+						{
+							"name": "not authorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/chat/{{chat_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"chat",
+										"{{chat_id}}"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 03:06:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not authorized\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "get price",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/payment/cost",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"payment",
+								"cost"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/payment/cost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment",
+										"cost"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-hYPyzGWqJJzystKIiGbmBvWtmQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Apr 2025 13:35:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"free\": 0\n    },\n    {\n        \"superplus\": 200\n    },\n    {\n        \"plus\": 20\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get user plan",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/user/currentplan",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"user",
+								"currentplan"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/currentplan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"currentplan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15-bHpwhRydy52JSuvMKESsWc7gnyk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 22:08:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"plan\": \"super plus\"\n}"
+						}
+					]
+				},
+				{
+					"name": "validate voucher",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"voucher\" : \"BEBO\" ,\r\n    \"plan\" : \"super plus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/voucher",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"voucher"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fully consumed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voucher\" : \"GENIO\" ,\r\n    \"plan\" : \"plus\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/voucher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"voucher"
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-GzQeKj05QcLYPnpAfGIg26xjA+0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Apr 2025 13:23:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Voucher is fully consumed\"\n}"
+						},
+						{
+							"name": "not a voucher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voucher\" : \"DODO\" ,\r\n    \"plan\" : \"plus\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/voucher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"voucher"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-i2BsJZr80FOn7mGV7NZeg2Oz1bs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Apr 2025 13:24:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Voucher not found\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"voucher\" : \"BeBO\" ,\r\n    \"plan\" : \"super plus\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/voucher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"voucher"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-VeiKBR0RjAlrFkO/ZLk+heUQAnk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Apr 2025 13:24:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Voucher is valid\",\n    \"newcost\": 5,\n    \"discount\": 195,\n    \"oldcost\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "payment request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/payment",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-eJBiU0GAXtpdvgtOf7S1Fn+YqG0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:31:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"redirectUrl\": \"https://easykash.net//DirectPayV1/EXA2541\"\n}"
+						},
+						{
+							"name": "invalid currency",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"NONO\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-rl71tX4r+tuqtmXBH+b6qUd7ZJo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:31:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid or unsupported currency\"\n}"
+						},
+						{
+							"name": "invalid user id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994164\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18-AhTXW3Sy3YGRX+f6hxTo8WCMhxg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:33:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid user\"\n}"
+						},
+						{
+							"name": "invalid plan name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"dodod\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-iUJhZNUM3BjMKM4AZUGb1dmSfbk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:34:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid plan name\"\n}"
+						},
+						{
+							"name": "missing data input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-C7nalOsNuBcW6teSzCx2/DyEB6c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:35:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"No plan provided\"\n}"
+						},
+						{
+							"name": "invalid voucher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"DODO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-MCBcXEPtY7DxdRP2HRmJBorZ7CQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:35:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid voucher\"\n}"
+						},
+						{
+							"name": "expired voucher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"plan\" : \"super plus\" ,\r\n    \"userId\" : \"f832d757-bb5e-4102-9e0d-ea994160aae4\" ,\r\n    \"voucher\" : \"GENIO\" , //maybe null \r\n    \"email\" : \"we@gmail.com\" ,\r\n    \"firstname\" : \"Bassel\" ,\r\n    \"lastname\" : \"Amr\" ,\r\n    \"countrycode\" : \"+20\" , \r\n    \"phone\" : \"1100725449\" ,\r\n    \"currency\" : \"EGP\"  //options [\"EGP\" , \"USD\" ,\"SAR\" ,\"EUR\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-yjP3UdqmTyuFnVCxVsReN153KPE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Mar 2025 19:36:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Voucher is expired\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

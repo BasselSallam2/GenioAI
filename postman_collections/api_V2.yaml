@@ -1,0 +1,1293 @@
+openapi: 3.0.0
+info:
+  title: genio AI
+  version: 1.0.0
+servers:
+  - url: https://genio-rust.vercel.app
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+paths:
+  /api/signup:
+    post:
+      tags:
+        - default
+      summary: signup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}"
+      security:
+        - noauthAuth: []
+      responses:
+        '201':
+          description: Created
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '39'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 11:53:47 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"27-O/zF1M4EsSeqcgZOzAXUbc5OpUA"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::r8wsd-1741866825439-44577cc1fcb7
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: User created successfully
+        '400':
+          description: Bad Request
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '37'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 11:54:47 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"25-FALXnfVDF85Ht8u+U3BPaJ1hPvM"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::zb45c-1741866887606-a78a76d1835b
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: duplicated email
+                  value:
+                    message: Email is already exists
+                example-1:
+                  summary: not matched password
+                  value:
+                    message: Passwords do not match
+                example-2:
+                  summary: wrong password schema
+                  value:
+                    message: >-
+                      Password should be at least 8 characters long, contain at
+                      least one uppercase letter, and one special character.
+  /api/login:
+    post:
+      tags:
+        - default
+      summary: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: bassela.salam@gmail.com
+                password: Bassel12#
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '292'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:06:25 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"124-r9pgYEpvwjMiVXAa4taKRpctlBY"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs;
+                  Path=/; HttpOnly; Secure; SameSite=Strict
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::rvkjd-1741867582314-e92d0693bcdd
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Login successful
+                token: >-
+                  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs
+        '400':
+          description: Bad Request
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '39'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:06:48 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"27-Mm37A2ls1bgL0/D8e3MSpDLbow8"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::mxfgz-1741867608439-90431b992795
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: wrong credintials
+                  value:
+                    message: Invalid email or password
+                example-1:
+                  summary: wrong password schema
+                  value:
+                    errors:
+                      - code: too_small
+                        minimum: 8
+                        type: string
+                        inclusive: true
+                        exact: false
+                        message: String must contain at least 8 character(s)
+                        path:
+                          - password
+                      - validation: regex
+                        code: invalid_string
+                        message: Invalid
+                        path:
+                          - password
+  /api/resetRequest:
+    post:
+      tags:
+        - default
+      summary: resetRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: bassela.salam@gmail.com
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '52'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:14:53 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"34-DtsQuOuVSa6wb+lIBvf7kbfENus"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::r8wsd-1741868091066-c0b6581bfc91
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Password reset email sent successfully
+        '404':
+          description: Not Found
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '43'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:15:21 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"2b-IKMjDraS/oArnqfqfgQ68q/3FxY"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::sldjj-1741868121219-5f0b105c7d57
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: No user found with this email
+  /api/resetCode/{user_id}:
+    post:
+      tags:
+        - default
+      summary: Reset Code Enter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ResetCode: '14785'
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '33'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:25:27 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"21-GKh+KZayzXzU+e2xYpmZ6TzKVgE"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::hjgk9-1741868726909-0e2c856e2896
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Reset code is valid
+        '400':
+          description: Bad Request
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '43'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:24:37 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"2b-NeYt7s1OxcX/jB/CK16e8IPTELE"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::6xt4f-1741868675980-37543692b065
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Invalid or expired reset code
+  /api/reset/{user_id}:
+    post:
+      tags:
+        - default
+      summary: Reset Password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                password: Bassel12##
+                confirmpassword: Bassel
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '27'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:39:11 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"1b-AF7oII34P3U/fIEcvSAZoaMYKF0"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::qf5j2-1741869550357-c9c4c025ed01
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: reset is Done
+        '400':
+          description: Bad Request
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '126'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:38:44 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::hh2hk-1741869524774-59ba2c9c7277
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: >-
+                  Password should be at least 8 characters long, contain at
+                  least one uppercase letter, and one special character.
+        '404':
+          description: Not Found
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '35'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:27:39 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"23-CPq8qcivhl0hzBdwA6fOAZ4uGkE"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::tffvq-1741868859165-9d901f6da516
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: passwords don't match
+  /api/user/{user_id}:
+    get:
+      tags:
+        - default
+      summary: get user profile
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Age:
+              schema:
+                type: integer
+                example: '0'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '113'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 13:30:58 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"71-m+czmoqlYEMMGW+M1F/Qf6f6kE8"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::nn2zc-1741872658289-c0a4227b5d8d
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                name: Bassel Sallam
+                email: bassela.salam@gmail.com
+                phone: '01100725449'
+                countrycode: '+20'
+                image: null
+        '401':
+          description: Unauthorized
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Age:
+              schema:
+                type: integer
+                example: '0'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '45'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Thu, 13 Mar 2025 12:42:41 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::qsz28-1741869760996-8356dbab1ed2
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: 'Unauthorized: No token provided'
+    put:
+      tags:
+        - default
+      summary: Edit user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: bassel amr mohamed
+                email: bassel@hotmail.com
+                countrycode: '+20'
+                phone: '01111'
+                image: image.com
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '37'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:19:11 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"25-z5kAIVrOG4WcMaAVeF2zh8JbQg0"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::k8mb5-1741997950287-6106fbad0d1c
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: user profile is updated
+        '401':
+          description: Unauthorized
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '45'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:21:15 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::7qsks-1741998075806-a0b8600afb68
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: 'Unauthorized: No token provided'
+        '403':
+          description: Forbidden
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '28'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:20:36 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"1c-hptDGgvEsj4G9BowIxRncOGOQj0"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::5k9hc-1741998035734-8b6ada7d4542
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Not authorized
+        '500':
+          description: Internal Server Error
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '173'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:23:26 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"ad-GoXF/hiCrAHxe/5yCJVcaB8ASpk"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::qcczh-1741998206385-739e0bd09a3f
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: |-
+                  [
+                    {
+                      "validation": "email",
+                      "code": "invalid_string",
+                      "message": "Invalid email",
+                      "path": [
+                        "email"
+                      ]
+                    }
+                  ]
+    patch:
+      tags:
+        - default
+      summary: change password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                password: Bassel12##
+                confirmpassword: Bassel
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '46'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:27:15 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"2e-zD6rvM9BhyMxSFJbUsbl2KCIu98"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::m7rw7-1741998434074-7a3a339e7fe2
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Password is updated successfully
+        '400':
+          description: Bad Request
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '36'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:25:32 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"24-N6uFjuN5oLJQsoX+l0WGxyl2HG4"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::srm6g-1741998332543-5b55caae919b
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: not match
+                  value:
+                    message: Passwords do not match
+                example-1:
+                  summary: wrong schema
+                  value:
+                    message: >-
+                      Password should be at least 8 characters long, contain at
+                      least one uppercase letter, and one special character.
+        '403':
+          description: Forbidden
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Cache-Control:
+              schema:
+                type: string
+                example: public, max-age=0, must-revalidate
+            Content-Length:
+              schema:
+                type: integer
+                example: '28'
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Date:
+              schema:
+                type: string
+                example: Sat, 15 Mar 2025 00:26:40 GMT
+            Etag:
+              schema:
+                type: string
+                example: W/"1c-hptDGgvEsj4G9BowIxRncOGOQj0"
+            Server:
+              schema:
+                type: string
+                example: Vercel
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubDomains; preload
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            X-Vercel-Cache:
+              schema:
+                type: string
+                example: MISS
+            X-Vercel-Id:
+              schema:
+                type: string
+                example: fra1::iad1::gnkgc-1741998400199-1f0277dc822f
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Not authorized

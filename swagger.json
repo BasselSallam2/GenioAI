@@ -1,0 +1,1316 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "genio AI",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://back-end-api.genio.ae/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "Chats"
+    },
+    {
+      "name": "Payment"
+    }
+  ],
+  "paths": {
+    "/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "signup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "test@gmail.com",
+                  "password": "Test123#",
+                  "firstname": "hassnaa",
+                  "lastname": "lotfy",
+                  "phonenumber": "01100725449",
+                  "confirmpassword": "Test123#",
+                  "countrycode": 20
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User created successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "duplicated email",
+                    "value": {
+                      "message": "Email is already exists"
+                    }
+                  },
+                  "example-1": {
+                    "summary": "not matched password",
+                    "value": {
+                      "message": "Passwords do not match"
+                    }
+                  },
+                  "example-2": {
+                    "summary": "wrong password schema",
+                    "value": {
+                      "message": "Password should be at least 8 characters long, contain at least one uppercase letter, and one special character."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "boc@gmail.com",
+                  "password": "Bassel12#"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Login successful",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "wrong credintials",
+                    "value": {
+                      "message": "Invalid email or password"
+                    }
+                  },
+                  "example-1": {
+                    "summary": "wrong password schema",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "too_small",
+                          "minimum": 8,
+                          "type": "string",
+                          "inclusive": true,
+                          "exact": false,
+                          "message": "String must contain at least 8 character(s)",
+                          "path": [
+                            "password"
+                          ]
+                        },
+                        {
+                          "validation": "regex",
+                          "code": "invalid_string",
+                          "message": "Invalid",
+                          "path": [
+                            "password"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/resetRequest": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "resetRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "bassela.Salam@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Password reset email sent successfully",
+                  "userId": "777b9b3d-4744-4eb4-ae3a-31da21361aa7"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "No user found with this email"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/resetCode/{user_id}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Reset Code Enter",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ResetCode": "14785"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Reset code is valid",
+                  "userId": "777b9b3d-4744-4eb4-ae3a-31da21361aa7"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Invalid or expired reset code"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/reset/{user_id}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Reset Password",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "Bassel12##",
+                  "confirmpassword": "Bassel"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "reset is Done"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Password should be at least 8 characters long, contain at least one uppercase letter, and one special character."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "passwords don't match"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/profile": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "get user profile",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "name": "Bassel Sallam",
+                  "email": "bassela.salam@gmail.com",
+                  "phone": "01100725449",
+                  "countrycode": 20
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Unauthorized: No token provided"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/edit": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Edit user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "bassel amr mohamed",
+                  "email": "bassel@hotmail.com",
+                  "countrycode": 20,
+                  "phone": "01111"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "user profile is updated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Unauthorized: No token provided"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Not authorized"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "[\n  {\n    \"validation\": \"email\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid email\",\n    \"path\": [\n      \"email\"\n    ]\n  }\n]"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/edit/password": {
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "change password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "Bassel12#",
+                  "confirmpassword": "Bassel12#"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Password is updated successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "not match",
+                    "value": {
+                      "message": "Passwords do not match"
+                    }
+                  },
+                  "example-1": {
+                    "summary": "wrong schema",
+                    "value": {
+                      "message": "Password should be at least 8 characters long, contain at least one uppercase letter, and one special character."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Not authorized"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/edit/image": {
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "edit image",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/edit_image_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Image is uploaded successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Please upload an image"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Not authorized"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/id": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "get user id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "userId": "c23670ee-c744-48fb-acf0-976df7f52e9c"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/user/chat": {
+      "get": {
+        "tags": [
+          "Chats"
+        ],
+        "summary": "get chats history",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "name": "C++ calculator tutorial.",
+                    "id": "9386b8f2-2e11-45bd-bf9e-a1a3dff2678f"
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Not authorized"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/chat/{chat_id}": {
+      "get": {
+        "tags": [
+          "Chats"
+        ],
+        "summary": "get Chat",
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "question": "how to make calculator using c++",
+                    "answer": "Here's how to make a simple calculator using C++:\n\nThis example demonstrates basic addition, subtraction, multiplication, and division.  Error handling (like division by zero) is omitted for brevity but should be included in a production-ready calculator.\n\n```c++\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  char operation;\n  double num1, num2;\n\n  cout << \"Enter operator (+, -, *, /): \";\n  cin >> operation;\n\n  cout << \"Enter two operands: \";\n  cin >> num1 >> num2;\n\n  switch (operation) {\n    case '+':\n      cout << num1 << \" + \" << num2 << \" = \" << num1 + num2 << endl;\n      break;\n    case '-':\n      cout << num1 << \" - \" << num2 << \" = \" << num1 - num2 << endl;\n      break;\n    case '*':\n      cout << num1 << \" * \" << num2 << \" = \" << num1 * num2 << endl;\n      break;\n    case '/':\n      if (num2 != 0) {\n        cout << num1 << \" / \" << num2 << \" = \" << num1 / num2 << endl;\n      } else {\n        cout << \"Error: Division by zero!\" << endl;\n      }\n      break;\n    default:\n      cout << \"Error: Invalid operator!\" << endl;\n  }\n\n  return 0;\n}\n```\n\nTo compile and run this code:\n\n1. **Save:** Save the code as a `.cpp` file (e.g., `calculator.cpp`).\n2. **Compile:** Use a C++ compiler (like g++) to compile the code:  `g++ calculator.cpp -o calculator`\n3. **Run:** Execute the compiled program: `./calculator`\n\nThe program will then prompt you to enter the operator and two numbers.  Remember to add more robust error handling and potentially more advanced features for a more complete calculator."
+                  },
+                  {
+                    "question": "and how to make it using python ",
+                    "answer": "That's a bit vague.  \"It\" refers to something unspecified. To answer how to make *something* using Python, I need to know what \"it\" is.  Please specify what you want to create using Python.  For example:\n\n* \"And how to make a simple web server using Python?\"\n* \"And how to make a program that sorts numbers using Python?\"\n* \"And how to make a game of tic-tac-toe using Python?\"\n\n\nOnce you provide the \"it,\" I can give you a helpful Python code example and explanation."
+                  },
+                  {
+                    "question": "and how to make it using python",
+                    "answer": "To create a calculator with different languages and options using Python, you'll need to combine several techniques. Here's a breakdown using the `tkinter` library for the GUI and a simple approach to language support:\n\n**1. Basic Calculator Functionality with `tkinter`:**\n\nThis example demonstrates a simple calculator with basic operations:\n\n```python\nimport tkinter as tk\n\ndef button_click(number):\n    current = entry.get()\n    entry.delete(0, tk.END)\n    entry.insert(0, str(current) + str(number))\n\ndef button_clear():\n    entry.delete(0, tk.END)\n\ndef button_equal():\n    try:\n        result = eval(entry.get())\n        entry.delete(0, tk.END)\n        entry.insert(0, result)\n    except (SyntaxError, NameError, ZeroDivisionError):\n        entry.delete(0, tk.END)\n        entry.insert(0, \"Error\")\n\n# Create main window\nroot = tk.Tk()\nroot.title(\"Calculator\")\n\n# Entry field\nentry = tk.Entry(root, width=35, borderwidth=5)\nentry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)\n\n# Buttons\nbuttons = [\n    '7', '8', '9', '/',\n    '4', '5', '6', '*',\n    '1', '2', '3', '-',\n    '0', '.', '=', '+'\n]\n\nrow = 1\ncol = 0\nfor button_text in buttons:\n    button = tk.Button(root, text=button_text, padx=40, pady=20, command=lambda text=button_text: button_click(text) if text != '=' else button_equal())\n    button.grid(row=row, column=col)\n    col += 1\n    if col > 3:\n        col = 0\n        row += 1\n\nclear_button = tk.Button(root, text=\"Clear\", padx=79, pady=20, command=button_clear)\nclear_button.grid(row=row, column=0, columnspan=2)\n\nroot.mainloop()\n```\n\n**2. Adding Language Support (Simplified):**\n\nThis is a simplified example; a robust solution would involve a more sophisticated translation system (e.g., using a library or external resource files).\n\n```python\nimport tkinter as tk\n\n# ... (button functions from previous example) ...\n\n# Language dictionary (expand for more languages and buttons)\nlanguage = {\n    \"en\": {\n        \"title\": \"Calculator\",\n        \"clear\": \"Clear\",\n        \"error\": \"Error\"\n    },\n    \"es\": {\n        \"title\": \"Calculadora\",\n        \"clear\": \"Limpiar\",\n        \"error\": \"Error\"\n    }\n}\n\ndef set_language(lang_code):\n    global language_data\n    language_data = language[lang_code]\n    root.title(language_data[\"title\"])\n    clear_button.config(text=language_data[\"clear\"])\n    # ... update other labels and button texts as needed ...\n\n# ... (rest of the code from the previous example) ...\n\n# Language selection (example)\nlang_var = tk.StringVar(value=\"en\")\nlang_menu = tk.OptionMenu(root, lang_var, \"en\", \"es\", command=set_language)\nlang_menu.grid(row=row+1, column=0, columnspan=2)\n\nroot.mainloop()\n```\n\n**3. Advanced Features:**\n\nTo add advanced features (scientific functions, memory functions, unit conversions), you'll need to:\n\n* **Implement the mathematical logic:**  Write functions to perform the calculations.\n* **Update the UI:**  Add buttons and display elements for the new features.\n* **Handle user input:**  Ensure that the calculator correctly interprets user input for the advanced functions.\n\nRemember that this is a basic framework.  A full-fledged, multi-language calculator with many features would require a more extensive codebase and potentially the use of external libraries for more advanced mathematical functions or language translation.  For more complex language support, consider using a dedicated internationalization library."
+                  },
+                  {
+                    "question": "and how to make it using c#",
+                    "answer": "Creating a multi-lingual calculator with various options in C# typically involves using Windows Forms or WPF for the UI and potentially external libraries for advanced features or language translation. Here's a structured approach:\n\n**1.  Basic Calculator with Windows Forms:**\n\nThis example uses Windows Forms for a simple calculator with basic operations.  You'll need to create a new Windows Forms App (.NET Framework or .NET) project in Visual Studio.\n\n```csharp\nusing System;\nusing System.Windows.Forms;\n\npublic partial class Form1 : Form\n{\n    private double firstNumber;\n    private string operation;\n\n    public Form1()\n    {\n        InitializeComponent();\n    }\n\n    private void button_Click(object sender, EventArgs e)\n    {\n        Button button = (Button)sender;\n        textBox1.Text += button.Text;\n    }\n\n    private void button_operator_Click(object sender, EventArgs e)\n    {\n        Button button = (Button)sender;\n        firstNumber = double.Parse(textBox1.Text);\n        operation = button.Text;\n        textBox1.Text = \"\";\n    }\n\n    private void button_equal_Click(object sender, EventArgs e)\n    {\n        double secondNumber = double.Parse(textBox1.Text);\n        double result = 0;\n\n        switch (operation)\n        {\n            case \"+\":\n                result = firstNumber + secondNumber;\n                break;\n            case \"-\":\n                result = firstNumber - secondNumber;\n                break;\n            case \"*\":\n                result = firstNumber * secondNumber;\n                break;\n            case \"/\":\n                if (secondNumber == 0)\n                {\n                    textBox1.Text = \"Error: Division by zero\";\n                    return;\n                }\n                result = firstNumber / secondNumber;\n                break;\n        }\n\n        textBox1.Text = result.ToString();\n    }\n\n    private void button_clear_Click(object sender, EventArgs e)\n    {\n        textBox1.Text = \"\";\n    }\n}\n```\n\nRemember to add buttons (0-9, +, -, *, /, =, Clear) and a TextBox to your form in the designer.  Associate the `button_Click`, `button_operator_Click`, `button_equal_Click`, and `button_clear_Click` methods with the appropriate buttons' `Click` events.\n\n**2.  Adding Language Support (Simplified):**\n\nFor a simple demonstration of language support, you can use a `Dictionary` to store translations:\n\n```csharp\n// ... (previous code) ...\n\nprivate Dictionary<string, Dictionary<string, string>> translations = new Dictionary<string, Dictionary<string, string>>()\n{\n    { \"en\", new Dictionary<string, string>() { { \"Clear\", \"Clear\" }, { \"Error\", \"Error\" } } },\n    { \"es\", new Dictionary<string, string>() { { \"Clear\", \"Limpiar\" }, { \"Error\", \"Error\" } } }\n};\n\nprivate string currentLanguage = \"en\"; // Default language\n\nprivate void SetLanguage(string languageCode)\n{\n    currentLanguage = languageCode;\n    button_clear.Text = translations[currentLanguage][\"Clear\"];\n    // ... update other button texts and labels as needed ...\n}\n\n// Example of using the language selection:\nprivate void comboBox1_SelectedIndexChanged(object sender, EventArgs e)\n{\n    SetLanguage(comboBox1.SelectedItem.ToString());\n}\n```\n\nAdd a ComboBox to your form to allow the user to select a language.  Populate the ComboBox with language codes (\"en\", \"es\", etc.).  The `SetLanguage` function updates the UI elements based on the selected language.\n\n**3. Advanced Features (WPF is generally better suited):**\n\nFor more advanced features (scientific functions, memory, unit conversions, etc.), WPF (Windows Presentation Foundation) is generally a better choice than Windows Forms because it offers more flexibility and a more modern UI framework.  You would use XAML for the UI and C# for the backend logic.  For complex calculations, you might consider using a mathematical library.\n\n**4.  Internationalization (i18n) Libraries:**\n\nFor a professional-grade, multi-lingual application, consider using a dedicated internationalization library to manage translations more effectively.  These libraries often provide features for resource file management, culture-specific formatting, and more.\n\n\nThis expanded example provides a more complete foundation.  Remember to handle potential errors (like division by zero or invalid input) gracefully.  For a production-ready application, thorough testing and error handling are crucial.  WPF is recommended for more complex UIs and features."
+                  },
+                  {
+                    "question": "and how to make it in arduino",
+                    "answer": "Making a calculator on an Arduino is different than a C++ desktop application because of the Arduino's limited input/output capabilities.  You won't have a keyboard and screen; instead, you'll likely use buttons for input and an LCD screen or LEDs for output.\n\nHere's a conceptual outline and code snippet to illustrate how you might approach a simple calculator on an Arduino using buttons and an LCD:\n\n**1. Hardware:**\n\n* **Arduino Board:** (Uno, Nano, etc.)\n* **LCD Screen:** A 16x2 LCD is common and easy to interface.\n* **Buttons:**  At least four buttons (one for each operation: +, -, *, /) and possibly more for numbers (0-9) and an equals (=) button.\n* **Resistors:**  Pull-down resistors for the buttons (to prevent floating inputs).\n* **Jumper Wires:** To connect everything.\n\n**2. Software (Arduino IDE):**\n\nYou'll need libraries for the LCD.  The most common is the `LiquidCrystal` library.  Make sure to install it if you don't have it already (Sketch > Include Library > Manage Libraries... then search for \"LiquidCrystal\").\n\n```c++\n#include <LiquidCrystal.h>\n\n// LCD pins (adjust these to match your wiring)\nconst int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;\nLiquidCrystal lcd(rs, en, d4, d5, d6, d7);\n\n// Button pins (adjust these to match your wiring)\nconst int buttonPlus = 8;\nconst int buttonMinus = 9;\nconst int buttonMultiply = 10;\nconst int buttonDivide = 7;\n// ... add pins for number buttons (0-9) and equals button\n\n// Variables to store numbers and operation\nfloat num1 = 0, num2 = 0;\nchar operation = ' ';\n\n\nvoid setup() {\n  lcd.begin(16, 2); // Initialize LCD\n  lcd.print(\"Calculator\"); // Display a message\n\n  // Set button pins as inputs with pull-down resistors\n  pinMode(buttonPlus, INPUT_PULLUP);\n  pinMode(buttonMinus, INPUT_PULLUP);\n  pinMode(buttonMultiply, INPUT_PULLUP);\n  pinMode(buttonDivide, INPUT_PULLUP);\n  // ... set pins for number buttons and equals button as INPUT_PULLUP\n}\n\nvoid loop() {\n  // Read button states\n  // ... (Code to read button presses and store numbers and operation)\n\n  // Perform calculation based on the operation\n  // ... (Code to perform calculation and display result on LCD)\n\n  // Clear the LCD for the next calculation\n  // ... (Code to clear the LCD)\n}\n```\n\n**3.  Implementation Details:**\n\n* **Button Debouncing:**  Buttons need debouncing to prevent multiple readings from a single press.  Use a simple debouncing technique (e.g., checking the button state multiple times within a short time window).\n* **Finite State Machine (FSM):**  An FSM is a good approach to manage the different states of the calculator (waiting for input, performing calculation, displaying results).\n* **Number Input:**  You'll need to handle multiple button presses to build up numbers (e.g., pressing '1', then '2' to get 12).\n* **Display:**  Update the LCD screen to show the current input, operation, and result.\n\nThis is a simplified overview.  A full implementation would require significantly more code to handle button debouncing, number input, operation selection, calculation, and LCD display updates.  The complexity increases substantially with the number of buttons and features you want to include."
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Not authorized"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/payment/cost": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "get price",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "free": 0
+                  },
+                  {
+                    "superplus": 200
+                  },
+                  {
+                    "plus": 20
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/user/currentplan": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Get user plan",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "plan": "super plus"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/voucher": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "validate voucher",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "voucher": "BEBO",
+                  "plan": "super plus"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Voucher is valid",
+                  "newcost": 5,
+                  "discount": 195,
+                  "oldcost": 200
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "error": "Voucher is fully consumed"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "error": "Voucher not found"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/payment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "payment request",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "plan": "super plus",
+                  "userId": "f832d757-bb5e-4102-9e0d-ea994160aae4",
+                  "voucher": "GENIO",
+                  "email": "we@gmail.com",
+                  "firstname": "Bassel",
+                  "lastname": "Amr",
+                  "countrycode": 20,
+                  "phone": "1100725449",
+                  "currency": "EGP"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "redirectUrl": "https://easykash.net//DirectPayV1/EXA2541"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "invalid currency",
+                    "value": {
+                      "error": "Invalid or unsupported currency"
+                    }
+                  },
+                  "example-1": {
+                    "summary": "invalid user id",
+                    "value": {
+                      "error": "Invalid user"
+                    }
+                  },
+                  "example-2": {
+                    "summary": "invalid plan name",
+                    "value": {
+                      "error": "Invalid plan name"
+                    }
+                  },
+                  "example-3": {
+                    "summary": "missing data input",
+                    "value": {
+                      "error": "No plan provided"
+                    }
+                  },
+                  "example-4": {
+                    "summary": "invalid voucher",
+                    "value": {
+                      "error": "Invalid voucher"
+                    }
+                  },
+                  "example-5": {
+                    "summary": "expired voucher",
+                    "value": {
+                      "error": "Voucher is expired"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "noauthAuth": {
+        "type": "http",
+        "scheme": "noauth"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id         String     @id @default(uuid())
+  uid      String?     @unique
+  email      String     @unique
+  name       String    
+  phone      String?
+  countrycode String?
+  password   String?
+  image      String?    
+  createdAt  DateTime   @default(now())
+  Isactive   Boolean    @default(true)
+  messageCounter Int    @default(0)
+  lastMessgae    DateTime?
+  resetCode  String?
+  resetexpire DateTime?
+  resetpermession Boolean @default(false)
+
+  Subscription  Subscription[]
+  Chat          Chat[]
+  ImageGallaryId    ImageGallary? 
+}
+
+
+
+model Subscription {
+  id         String     @id @default(uuid()) 
+  userId    String
+  planId    String 
+  createdAt  DateTime   @default(now())
+  Isactive   Boolean    @default(true)
+  voucherId   String?
+  paymentmethod String?
+  easykaschrefrence String?
+  signturehash String?
+  amount String?
+  producttype String?
+
+  Voucher    Voucher?    @relation(fields: [voucherId], references: [id])
+  user       User       @relation(fields: [userId], references: [id])
+  Plan     Plan       @relation(fields: [planId], references: [id])
+}
+
+
+model Plan {
+  id         String     @id @default(uuid()) 
+  name       String     @unique
+  price      Int 
+
+  Subscription  Subscription[]
+  Permissions   Permissions? @relation(fields: [permissionsId], references: [id])
+  permissionsId String?     @unique
+}
+
+model Permissions {
+  id         String     @id @default(uuid()) 
+  maximumMessages Int
+  resetMinutes Int
+
+  Plan     Plan?
+}
+
+model History {
+  id         String     @id @default(uuid())
+  question   String   @db.Text     
+  answer     String?   @db.Text
+  image      String?   
+  type       String     
+  chat       Chat       @relation(fields: [chatId], references: [id])
+  chatId     String
+  createdAt  DateTime   @default(now())
+}
+
+model Chat {
+  id         String     @id @default(uuid())
+  name       String
+  userId     String
+
+  user        User      @relation(fields: [userId], references: [id])
+  Histories  History[]
+  createdAt  DateTime   @default(now())
+}
+
+model Voucher {
+  id         String     @id @default(uuid())
+  code       String     @unique
+  maximumAmount Int 
+  percentage    Int
+  consumed      Int   @default(0) 
+  avalibale     Int 
+  Isactive      Boolean @default(true)
+
+  Subscription  Subscription[]
+
+}
+
+model TempPayment {
+   id         String     @id @default(uuid())
+   userId     String
+   voucher    String?
+   plan       String
+
+}
+
+model ImageGallary {
+
+   id         String     @id @default(uuid())
+   userId     String      @unique
+   User       User      @relation(fields:[userId] , references:[id])
+   createdAt  DateTime   @default(now())
+
+   GeneratedImages    GeneratedImages[]
+
+}
+
+model GeneratedImages {
+  id         String     @id @default(uuid())
+  gallaryId   String
+  ImageGallary  ImageGallary   @relation(fields:[gallaryId] , references:[id])  
+  image         String
+  model         String
+  height         String
+  width        String
+  createdAt  DateTime   @default(now())
+  
+
+}
+
+
+
+
+
+

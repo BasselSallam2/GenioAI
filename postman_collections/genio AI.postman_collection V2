@@ -1,0 +1,1803 @@
+{
+	"info": {
+		"_postman_id": "2909e3c9-7220-4156-95a6-5a88114e4b20",
+		"name": "genio AI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42360708"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/signup"
+			},
+			"response": [
+				{
+					"name": "successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\" : \"bassela.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel12#\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/signup"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 11:53:47 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"27-O/zF1M4EsSeqcgZOzAXUbc5OpUA\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::r8wsd-1741866825439-44577cc1fcb7"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created successfully\"\n}"
+				},
+				{
+					"name": "duplicated email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\" : \"bassela.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel12#\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/signup"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 11:54:47 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"25-FALXnfVDF85Ht8u+U3BPaJ1hPvM\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::zb45c-1741866887606-a78a76d1835b"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Email is already exists\"\n}"
+				},
+				{
+					"name": "not matched password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel12#\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/signup"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 11:56:16 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"24-N6uFjuN5oLJQsoX+l0WGxyl2HG4\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::msbng-1741866976280-7f9c3318e17b"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Passwords do not match\"\n}"
+				},
+				{
+					"name": "wrong password schema",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\" : \"bassellla.salam@gmail.com\" ,\r\n     \"password\" : \"Bassel\" , // Password should be at least 8 characters long, contain at least one uppercase  letter, and one special character\r\n      \"firstname\" : \"Bassel\" ,\r\n       \"lastname\" : \"Sallam\" ,\r\n        \"phonenumber\"  : \"01100725449\" ,\r\n         \"confirmpassword\" : \"Bassel\" ,\r\n          \"countrycode\" : \"+20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/signup"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 11:56:40 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::45dvg-1741867000340-39e92390e821"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"bassela.salam@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/login"
+			},
+			"response": [
+				{
+					"name": "succesfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bassela.salam@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "292"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:06:25 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"124-r9pgYEpvwjMiVXAa4taKRpctlBY\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs; Path=/; HttpOnly; Secure; SameSite=Strict"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::rvkjd-1741867582314-e92d0693bcdd"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0MmQwNy04MmIwLTQ3NGItYTkxZC05ZmY1ZDU3MDEzZTEiLCJ1c2VybmFtZSI6IkJhc3NlbCBTYWxsYW0iLCJlbWFpbCI6ImJhc3NlbGEuc2FsYW1AZ21haWwuY29tIiwiaWF0IjoxNzQxODY3NTg1fQ.MnNmlzvSOrRpST13zjwvaop1caZ23RAOkWGQPY-TfWs\"\n}"
+				},
+				{
+					"name": "wrong credintials",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bassela.salllam@gmail.com\" ,\r\n    \"password\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/login"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:06:48 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"27-Mm37A2ls1bgL0/D8e3MSpDLbow8\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::mxfgz-1741867608439-90431b992795"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid email or password\"\n}"
+				},
+				{
+					"name": "wrong password schema",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bassela.salllam@gmail.com\" ,\r\n    \"password\" : \"Bassel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/login"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "255"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:07:15 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"ff-1/qNeClQXr6niNDHqwzfIgBmuSE\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::lqf97-1741867635118-5709083223e2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"code\": \"too_small\",\n            \"minimum\": 8,\n            \"type\": \"string\",\n            \"inclusive\": true,\n            \"exact\": false,\n            \"message\": \"String must contain at least 8 character(s)\",\n            \"path\": [\n                \"password\"\n            ]\n        },\n        {\n            \"validation\": \"regex\",\n            \"code\": \"invalid_string\",\n            \"message\": \"Invalid\",\n            \"path\": [\n                \"password\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "resetRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"bassela.salam@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/resetRequest"
+			},
+			"response": [
+				{
+					"name": "sucessfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bassela.salam@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/resetRequest"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:14:53 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"34-DtsQuOuVSa6wb+lIBvf7kbfENus\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::r8wsd-1741868091066-c0b6581bfc91"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password reset email sent successfully\"\n}"
+				},
+				{
+					"name": "not found user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"basselllllla.salam@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/resetRequest"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:15:21 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2b-IKMjDraS/oArnqfqfgQ68q/3FxY\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::sldjj-1741868121219-5f0b105c7d57"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"No user found with this email\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Reset Code Enter",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ResetCode\" : \"14785\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/resetCode/{{user_id}}"
+			},
+			"response": [
+				{
+					"name": "wrong code",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ResetCode\" : \"14785\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/resetCode/{{user_id}}"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:24:37 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2b-NeYt7s1OxcX/jB/CK16e8IPTELE\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::6xt4f-1741868675980-37543692b065"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid or expired reset code\"\n}"
+				},
+				{
+					"name": "sucessfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ResetCode\" : \"2788\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/resetCode/{{user_id}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:25:27 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"21-GKh+KZayzXzU+e2xYpmZ6TzKVgE\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::hjgk9-1741868726909-0e2c856e2896"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Reset code is valid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/reset/{{user_id}}"
+			},
+			"response": [
+				{
+					"name": "no match password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/reset/{{user_id}}"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:27:39 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"23-CPq8qcivhl0hzBdwA6fOAZ4uGkE\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::tffvq-1741868859165-9d901f6da516"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"passwords don't match\"\n}"
+				},
+				{
+					"name": "wrong password schema",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/reset/{{user_id}}"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:38:44 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::hh2hk-1741869524774-59ba2c9c7277"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+				},
+				{
+					"name": "successsfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/reset/{{user_id}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:39:11 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1b-AF7oII34P3U/fIEcvSAZoaMYKF0\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::qf5j2-1741869550357-c9c4c025ed01"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"reset is Done\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get user profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+			},
+			"response": [
+				{
+					"name": "no token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Age",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 12:42:41 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::qsz28-1741869760996-8356dbab1ed2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthorized: No token provided\"\n}"
+				},
+				{
+					"name": "successfull",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Age",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 13:30:58 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"71-m+czmoqlYEMMGW+M1F/Qf6f6kE8\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::nn2zc-1741872658289-c0a4227b5d8d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Bassel Sallam\",\n    \"email\": \"bassela.salam@gmail.com\",\n    \"phone\": \"01100725449\",\n    \"countrycode\": \"+20\",\n    \"image\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" ,\r\n    \"image\" : \"image.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+			},
+			"response": [
+				{
+					"name": "successfull",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" ,\r\n    \"image\" : \"image.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:19:11 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"25-z5kAIVrOG4WcMaAVeF2zh8JbQg0\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::k8mb5-1741997950287-6106fbad0d1c"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user profile is updated\"\n}"
+				},
+				{
+					"name": "un authorized",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" ,\r\n    \"image\" : \"image.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:20:36 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::5k9hc-1741998035734-8b6ada7d4542"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not authorized\"\n}"
+				},
+				{
+					"name": "no token",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel@hotmail.com\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" ,\r\n    \"image\" : \"image.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:21:15 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2d-X4Kp3DqwnfMf2IOLJ+gBL2X7Jw8\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::7qsks-1741998075806-a0b8600afb68"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthorized: No token provided\"\n}"
+				},
+				{
+					"name": "invalid email",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"bassel amr mohamed\" , \r\n    \"email\" : \"bassel\" ,\r\n    \"countrycode\" : \"+20\" ,\r\n    \"phone\" : \"01111\" ,\r\n    \"image\" : \"image.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "173"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:23:26 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"ad-GoXF/hiCrAHxe/5yCJVcaB8ASpk\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::qcczh-1741998206385-739e0bd09a3f"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"[\\n  {\\n    \\\"validation\\\": \\\"email\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid email\\\",\\n    \\\"path\\\": [\\n      \\\"email\\\"\\n    ]\\n  }\\n]\"\n}"
+				}
+			]
+		},
+		{
+			"name": "change password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+			},
+			"response": [
+				{
+					"name": "not match",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12##\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:25:32 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"24-N6uFjuN5oLJQsoX+l0WGxyl2HG4\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::srm6g-1741998332543-5b55caae919b"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Passwords do not match\"\n}"
+				},
+				{
+					"name": "wrong schema",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12\" ,\r\n    \"confirmpassword\" : \"Bassel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:25:48 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7e-Sa2gSHyJcNLT0Dtrs0ngss74pIg\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::nss7p-1741998348579-412491a95ab7"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password should be at least 8 characters long, contain at least one uppercase letter, and one special character.\"\n}"
+				},
+				{
+					"name": "unauthrotized",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:26:40 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1c-hptDGgvEsj4G9BowIxRncOGOQj0\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::gnkgc-1741998400199-1f0277dc822f"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not authorized\"\n}"
+				},
+				{
+					"name": "successfull",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"Bassel12#\" ,\r\n    \"confirmpassword\" : \"Bassel12#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://genio-rust.vercel.app/api/user/{{user_id}}"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Mar 2025 00:27:15 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2e-zD6rvM9BhyMxSFJbUsbl2KCIu98\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "fra1::iad1::m7rw7-1741998434074-7a3a339e7fe2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Password is updated successfully\"\n}"
+				}
+			]
+		}
+	]
+}
